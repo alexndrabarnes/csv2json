@@ -21,6 +21,8 @@ class TokenHaven:
         logger = logging.getLogger(__name__)
         level = logging.DEBUG if self.verbose else logging.INFO
         logger.setLevel(level)
+        if logger.handlers:
+            return logger
         handler = logging.StreamHandler()
         handler.setFormatter(logging.Formatter(
             '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
